@@ -102,13 +102,30 @@ const Contexts = {
     ONE_MORE: 'one_more'
 };
 
-app.intent('quit_app', (conv) => {
-    conv.close("Semoga hari Anda menyenangkan, Sampai Ketemu Lagi");
+const SUGGEST = new Array("Murottal Al-Quran",
+                          "Murottal dan Terjemahan",
+                          "Do’a-do’a",
+                          "Ayat-Ayat Tematik",
+                          "Informasi Produk"
+                    );
+
+const BOOK_NAME = new Array("Surah Alfatihah",
+                            "Surah Yasin",
+                        // "alwaqiah" => "Surah Al Waqiah",
+                        // "almulk" => "Surah Al-Mulk",
+                        // "arrahman" => "Surah Ar-Rahman",
+                        // "alikhlas" => "Surah Al-Ikhlas",
+                        // "alfalaq" => "Surah Al-Falaq",
+                        // "annas" => "Surah An-Nās",
+                );
+app.intent('start_app', (conv) => {
+    const initMessage = "Assalamualaikum! Selamat datang di Al-Qolam! \n Kami siap menemani Anda untuk belajar, membaca dan mendengarkan Al-Qur’an. Apa yang ingin Anda baca dan dengarkan? ";
+    return getMessageFromQuote(initMessage,conv,SUGGEST);
 });
 
-app.intent('start_app', (conv) => {
-    const initMessage = `Selamat datang di Him Speaking, Berbagi Kata kata mutiara dengan Him Speak`;
-    return getMessageFromQuote(initMessage,conv);
+app.intent('intent_murottal', (conv) => {
+   const initMessage = `Baik. Surah apa yang ingin Anda baca dan dengarkan? `;
+    return getMessageFromQuote(initMessage,conv,BOOK_NAME);
 });
 
 app.intent('one_more_yes', (conv) => {
@@ -119,6 +136,11 @@ app.intent('one_more_yes', (conv) => {
 app.intent('one_more_no', (conv) => {
     conv.close("Semoga anda menjadi terinspirasi dengan kata kata mutiara dari kami, Semoga hari anda menyenangkan dan silahkan kembali lagi.");
 });
+
+app.intent('quit_app', (conv) => {
+    conv.close("Semoga hari Anda menyenangkan, Sampai Ketemu Lagi");
+});
+
 app.intent('Default Fallback Intent', (conv) => {
     console.log(conv.data.fallbackCount);
     if (typeof conv.data.fallbackCount !== 'number') {
@@ -140,8 +162,8 @@ return `  <audio src="https://actions.google.com/sounds/v1/water/waves_crashing_
 function getEndingMessageText(){
   return `Apakah anda ingin mendengarkan kata kata mutiara yang lain?`;
   }
-function getMessageFromQuote(initMessage,conv){
-    return conv.ask(new Suggestions('Kata kata mutiara', 'Tidak'), new SimpleResponse(initMessage),
+function getMessageFromQuote(initMessage,conv, sugest){
+    return conv.ask(new Suggestions(sugest), new SimpleResponse(initMessage),
     new SimpleResponse( {text: getEndingMessageText(),
     speech: `<speak> ` + getEndingMessage() + ` </speak>  ` }));
  }
