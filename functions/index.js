@@ -118,6 +118,15 @@ const BOOK_NAME = new Array("Surah Alfatihah",
                         // "alfalaq" => "Surah Al-Falaq",
                         // "annas" => "Surah An-Nās",
                 );
+
+const product_suggestion = new Array ("Smart Hafiz",
+                                      "Hafiz Doll Billingual",
+                                      "Super Hafiz");
+
+
+// const initMessage = "Ini Isi deksripsi dari Smart Hafiz";
+
+
 app.intent('start_app', (conv) => {
     const initMessage = "Assalamualaikum! Selamat datang di Al-Qolam! \n Kami siap menemani Anda untuk belajar, membaca dan mendengarkan Al-Qur’an. Apa yang ingin Anda baca dan dengarkan? ";
     return getMessageFromQuote(initMessage,conv,SUGGEST);
@@ -137,8 +146,38 @@ app.intent('one_more_no', (conv) => {
     conv.close("Semoga anda menjadi terinspirasi dengan kata kata mutiara dari kami, Semoga hari anda menyenangkan dan silahkan kembali lagi.");
 });
 
+app.intent('quit_with_product', (conv) => {
+  conv.close("Kami menyediakan produk edukasi untuk anak, apakah anda ingin melihat katalog kami");
+});
+
 app.intent('quit_app', (conv) => {
-    conv.close("Semoga hari Anda menyenangkan, Sampai Ketemu Lagi");
+    const initMessage= "Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini";
+    return getMessageFromQuote(initMessage,conv,product_suggestion);
+});
+
+
+app.intent('detail_product', (conv) => {
+    const product_type = conv.parameters['product_type'].toLowerCase();
+    if (product_type === "smart hafiz") {
+               conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
+               conv.ask(new BasicCard({
+                    image: new Image({
+                     url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
+                     alt: 'Smart Hafiz',
+                 }),
+         }));
+         conv.ask("Kalau anda tertarik dengan produk ini silahkan masukan email Anda");
+    }else if (product_type === "hafizdoll") {
+        conv.ask("Ini Hafiz Doll");
+        conv.ask(new BasicCard({
+          image: new Image({
+           url: 'https://assets.alqolam.com/images/2019/04/08/4.jpg', //url of your image.
+           alt: 'Smart Hafiz',
+       }),
+}));
+    }else {
+        conv.ask("Silahkan Pilih Produk")
+}
 });
 
 app.intent('Default Fallback Intent', (conv) => {
