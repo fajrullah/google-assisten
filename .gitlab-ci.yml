@@ -11,9 +11,10 @@ deploy_production:
   only:
     - master
   script:
+    - cd functions
     - npm install -g firebase-tools
-    - npm install -g bower
+    # - npm install -g bower
     - npm install
-    - bower install --allow-root
+    # - bower install --allow-root
     - firebase use --token 1/dVV0AEESEJaZFd1CLRd3hXrQCkBphUSrCzQ6n3ZoI_c production
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token 1/dVV0AEESEJaZFd1CLRd3hXrQCkBphUSrCzQ6n3ZoI_c
