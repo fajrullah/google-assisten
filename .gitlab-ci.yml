@@ -16,5 +16,5 @@ deploy_production:
     # - npm install -g bower
     - npm install
     # - bower install --allow-root
-    - firebase use --token $FIREBASE_DEPLOY_KEY production
+    - firebase use --token $FIREBASE_DEPLOY_KEY himspeak-a0f56
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_DEPLOY_KEY
