@@ -99,15 +99,15 @@ var config = {
   appId: "1:1029740290293:web:48e370ba0f90155a"
 };
 
-const select_smart_hafiz = 'smart hafiz';
-const select_hafiz_doll = 'hafiz doll';
+const select_smart_hafiz = 'smarthafiz';
+const select_hafiz_doll = 'hafizdoll';
 
 
 // Constants for selected item responses
-// const PRODUCTS_RESPONSES = {
-//    'select_smart_hafiz' : 'Anda memilih Smart Hafiz',
-//    'select_hafiz_doll' : 'Anda memilih Hafiz Doll',
-// };
+const PRODUCTS_RESPONSES = {
+   [select_smart_hafiz] : 'Anda memilih Smart Hafiz',
+   [select_hafiz_doll] : 'Anda memilih Hafiz Doll',
+};
 
 
 // Create an app instance
@@ -228,16 +228,16 @@ app.intent('quit_app', (conv) => {
 
 
 // Handle list or carousel selection
-// app.intent('item selected', (conv, params, option) => {
-//   let response = 'Silahkan Pilih Produk';
-//   if (option && PRODUCTS_RESPONSES.hasOwnProperty(option)) {
-//     response = PRODUCTS_RESPONSES[option];
-//   } else {
-//     response = 'Terimakasih, silahkan kembali lagi apabila Anda tertarik dengan produk kami';
-//   }
-//   conv.ask(response);
-//   conv.ask(new Suggestions(intentSuggestions));
-// });
+app.intent('item selected', (conv, params, option) => {
+  let response = 'Silahkan Pilih Produk';
+  if (option && PRODUCTS_RESPONSES.hasOwnProperty(option)) {
+    response = PRODUCTS_RESPONSES[option];
+  } else {
+    response = 'Terimakasih, silahkan kembali lagi apabila Anda tertarik dengan produk kami';
+  }
+  conv.ask(response);
+  conv.ask(new Suggestions(intentSuggestions));
+});
 
 
 
