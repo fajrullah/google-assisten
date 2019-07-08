@@ -174,9 +174,11 @@ app.intent('start_app', (conv) => {
 app.intent('intent_murottal', (conv) => {
   const quran = conv.parameters['quran'].toLowerCase();
   if (quran === "alfatihah") {
-            if (!conv.hasAudioPlayback) {
-            conv.close('Sorry, this device does not support audio playback.')
-            return;
+            
+    if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
+      conv.ask('Sorry, this device does not support audio playback.');
+      return;
+  }
     }
              conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
              conv.ask(new MediaObject({
