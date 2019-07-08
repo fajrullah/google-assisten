@@ -28,7 +28,7 @@ const PRODUCTS_RESPONSES = {
    [hafiz_doll] : 'Anda memilih Hafiz Doll',
 };
 
-require("./component/getEndingMessage");
+// require("./component/getEndingMessage");
 // require("./component/getSuggestion");
 
 const SUGGEST = new Array(
@@ -214,6 +214,13 @@ app.intent('Default Fallback Intent', (conv) => {
 });
 // End Intent Tidak Tau
 
+function getEndingMessageText() {
+    return `Apakah anda ingin mendengarkan kata kata mutiara yang lain?`;
+}
+
+function getEndingMessage() {
+    return `  <audio src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg" clipBegin="10s" clipEnd="13s">Consider the quote!</audio>`;
+}
 
 function getMessageFromQuote(initMessage, conv, sugest) {
     return conv.ask(new Suggestions(sugest), new SimpleResponse(initMessage),
