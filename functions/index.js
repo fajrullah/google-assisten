@@ -173,13 +173,12 @@ app.intent('start_app', (conv) => {
 // Quran Basic Card With Media Sample
 app.intent('intent_murottal', (conv) => {
   const quran = conv.parameters['quran'].toLowerCase();
-  if (quran === "alfatihah") {
-            
+  if (quran === "alfatihah") {      
     if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
-      conv.ask('Sorry, this device does not support audio playback.');
+      conv.close('Sorry, this device does not support audio playback.');
       return;
   }
-             conv.close("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
+             conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
              conv.ask(new MediaObject({
               name: 'Surah Al-Fatihah',
               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
@@ -192,10 +191,10 @@ app.intent('intent_murottal', (conv) => {
 
   }else if (quran === "annaas") {
       if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
-        conv.ask('Sorry, this device does not support audio playback.');
+        conv.close('Sorry, this device does not support audio playback.');
         return;
         }
-        conv.close("Murotal Surah An-Naas");
+        conv.ask("Murotal Surah An-Naas");
         conv.ask(new MediaObject({
         name: 'Surah An-Naas',
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
