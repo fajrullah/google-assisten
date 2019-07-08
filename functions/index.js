@@ -29,7 +29,20 @@ const PRODUCTS_RESPONSES = {
 };
 
 require("./component/getEndingMessage");
-require("./component/getSuggestion");
+// require("./component/getSuggestion");
+
+const SUGGEST = new Array(
+    "Murottal Al-Quran",
+    "Murottal dan Terjemahan",
+    "Do’a-do’a",
+    "Ayat-Ayat Tematik",
+    "Informasi Produk"
+);
+
+const BOOK_NAME = new Array(
+    "Surah Alfatihah",
+    "Surah Yasin",
+);
 
 // Create an app instance
 const app = dialogflow()
