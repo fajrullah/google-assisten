@@ -1,11 +1,8 @@
 const functions = require('firebase-functions');
 const { dialogflow, BasicCard, BrowseCarousel, BrowseCarouselItem, Button, Carousel, Image, LinkOutSuggestion, List, MediaObject, Suggestions, SimpleResponse, Table } = require('actions-on-google');
 
-
-module.exports = {
     // Quran Basic Card With Media Sample
-// app.intent('intent_murottal', (conv) => {
-'intent_murottal': (conv) => {
+app.intent('intent_murottal', (conv) => {
   const quran = conv.parameters['quran'].toLowerCase();
   if (quran === "alfatihah") {
     if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
@@ -25,10 +22,10 @@ module.exports = {
             conv.ask(new Suggestions(BOOK_NAME));
 
   }else if (quran === "annaas") {
-    if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
+      if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
         conv.close('Sorry, this device does not support audio playback.');
         return;
-    }
+        }
         conv.ask("Murotal Surah An-Naas");
         conv.ask(new MediaObject({
         name: 'Surah An-Naas',
@@ -41,20 +38,19 @@ module.exports = {
       }));
   }else {
       conv.ask("Silahkan Pilih Surah")
-  }
 }
+});
 
 // Handle a media status event
-// app.intent('media status', (conv) => {
-//   const mediaStatus = conv.arguments.get('MEDIA_STATUS');
-//   let response = 'Unknown media status received.';
-//   if (mediaStatus && mediaStatus.status === 'FINISHED') {
-//     response = 'Hope you enjoyed the tunes!';
-//   }
-//   conv.ask(response);
-//   conv.ask(new Suggestions(BOOK_NAME));
-// });
+app.intent('media status', (conv) => {
+  const mediaStatus = conv.arguments.get('MEDIA_STATUS');
+  let response = 'Unknown media status received.';
+  if (mediaStatus && mediaStatus.status === 'FINISHED') {
+    response = 'Hope you enjoyed the tunes!';
+  }
+  conv.ask(response);
+  conv.ask(new Suggestions(BOOK_NAME));
+});
 
 
-
-}
+module.exports = alqolam;

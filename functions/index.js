@@ -13,7 +13,7 @@ const PRODUCTS_RESPONSES = {
    [hafiz_doll] : 'Anda memilih Hafiz Doll',
 };
 
-const alquran = require('./component/quran');
+const alquran = require('./component/Quran');
 
 function addIntents(...args) {
   for (let i = 0; i < args.length; i++) {
