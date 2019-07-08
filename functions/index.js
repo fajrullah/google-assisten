@@ -179,8 +179,8 @@ app.intent('intent_murottal', (conv) => {
       conv.ask('Sorry, this device does not support audio playback.');
       return;
   }
-             conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
-             conv.ask(new MediaObject({
+             conv.close("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
+             conv.close(new MediaObject({
               name: 'Surah Al-Fatihah',
               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
               description: 'Surah Al-Fatihah Ayat 1 - 7',
