@@ -191,7 +191,6 @@ app.intent('intent_murottal', (conv) => {
             }));
 
   }else if (quran === "annaas") {
-    if (!conv.hasAudioPlayback) {
       if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
         conv.ask('Sorry, this device does not support audio playback.');
         return;
