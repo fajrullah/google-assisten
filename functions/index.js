@@ -180,35 +180,34 @@ app.intent('intent_murottal', (conv) => {
       return;
   }
              conv.close("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
-             conv.close(new BasicCard({
-             image: new Image({
-              url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/title/00%20Surah%20title.png',
-              alt: 'Surah Alfatihah',
-            }),
-          }));
              conv.close(new MediaObject({
               name: 'Surah Al-Fatihah',
               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
               description: 'Surah Al-Fatihah Ayat 1 - 7',
+              icon: new Image({
+                url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
+                alt: 'Surah An-Naas',
+              }),
             }));
 
   }else if (quran === "annaas") {
     if (!conv.hasAudioPlayback) {
-      conv.close('Sorry, this device does not support audio playback.')
-      return;
-      }
-      conv.ask("Murotal Surah An-Naas");
-      conv.ask(new MediaObject({
+      if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
+        conv.ask('Sorry, this device does not support audio playback.');
+        return;
+        }
+        conv.close("Murotal Surah An-Naas");
+        conv.close(new MediaObject({
         name: 'Surah An-Naas',
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
         description: 'A funky Jazz tune',
         icon: new Image({
-          url: 'https://storage.googleapis.com/automotive-media/album_art.jpg',
+          url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
           alt: 'Surah An-Naas',
         }),
       }));
   }else {
-      conv.ask("Silahkan Pilih Surah")
+      conv.close("Silahkan Pilih Surah")
 }
 });
 
