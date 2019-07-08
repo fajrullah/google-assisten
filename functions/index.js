@@ -1,22 +1,7 @@
 'use strict';
 
 const functions = require('firebase-functions');
-const Datastore = require('@google-cloud/datastore');
-const admin = require('firebase-admin');
 const { dialogflow, BasicCard, BrowseCarousel, BrowseCarouselItem, Button, Carousel, Image, LinkOutSuggestion, List, MediaObject, Suggestions, SimpleResponse, Table } = require('actions-on-google');
-
-var config = {
-    apiKey: "AIzaSyC6odRTqCJkySu5i5FDJZFJANtbU7MgJ7U",
-    authDomain: "himspeak-a0f56.firebaseapp.com",
-    databaseURL: "https://himspeak-a0f56.firebaseio.com",
-    projectId: "himspeak-a0f56",
-    storageBucket: "",
-    messagingSenderId: "1029740290293",
-    appId: "1:1029740290293:web:48e370ba0f90155a"
-};
-
-admin.initializeApp(config);
-var database = admin.database();
 
 const smart_hafiz = 'smarthafiz';
 const hafiz_doll = 'hafizdoll';
@@ -27,6 +12,21 @@ const PRODUCTS_RESPONSES = {
    [smart_hafiz] : 'Anda memilih Smart Hafiz',
    [hafiz_doll] : 'Anda memilih Hafiz Doll',
 };
+
+const alquran = require('./component/quran');
+
+function addIntents(...args) {
+  for (let i = 0; i < args.length; i++) {
+    for (const key in args[i]) {
+      if (args[i].hasOwnProperty(key)) app.intent(key, args[i][key]);
+    }
+  }
+}
+
+addIntents(
+  alquran
+);
+
 
 // require("./component/getEndingMessage");
 // require("./component/getSuggestion");
@@ -57,56 +57,56 @@ app.intent('start_app', (conv) => {
 // Call Quran.js
 // const quran = require('./quran');
 
-// Quran Basic Card With Media Sample
-app.intent('intent_murottal', (conv) => {
-  const quran = conv.parameters['quran'].toLowerCase();
-  if (quran === "alfatihah") {
-    if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
-      conv.close('Sorry, this device does not support audio playback.');
-      return;
-  }
-             conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
-             conv.ask(new MediaObject({
-              name: 'Surah Al-Fatihah',
-              url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
-              description: 'Surah Al-Fatihah Ayat 1 - 7',
-              icon: new Image({
-                url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
-                alt: 'Surah An-Naas',
-              }),
-            }));
-            conv.ask(new Suggestions(BOOK_NAME));
+// // Quran Basic Card With Media Sample
+// app.intent('intent_murottal', (conv) => {
+//   const quran = conv.parameters['quran'].toLowerCase();
+//   if (quran === "alfatihah") {
+//     if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
+//       conv.close('Sorry, this device does not support audio playback.');
+//       return;
+//   }
+//              conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
+//              conv.ask(new MediaObject({
+//               name: 'Surah Al-Fatihah',
+//               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
+//               description: 'Surah Al-Fatihah Ayat 1 - 7',
+//               icon: new Image({
+//                 url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
+//                 alt: 'Surah An-Naas',
+//               }),
+//             }));
+//             conv.ask(new Suggestions(BOOK_NAME));
 
-  }else if (quran === "annaas") {
-      if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
-        conv.close('Sorry, this device does not support audio playback.');
-        return;
-        }
-        conv.ask("Murotal Surah An-Naas");
-        conv.ask(new MediaObject({
-        name: 'Surah An-Naas',
-        url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
-        description: 'A funky Jazz tune',
-        icon: new Image({
-          url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
-          alt: 'Surah An-Naas',
-        }),
-      }));
-  }else {
-      conv.ask("Silahkan Pilih Surah")
-}
-});
+//   }else if (quran === "annaas") {
+//       if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
+//         conv.close('Sorry, this device does not support audio playback.');
+//         return;
+//         }
+//         conv.ask("Murotal Surah An-Naas");
+//         conv.ask(new MediaObject({
+//         name: 'Surah An-Naas',
+//         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
+//         description: 'A funky Jazz tune',
+//         icon: new Image({
+//           url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
+//           alt: 'Surah An-Naas',
+//         }),
+//       }));
+//   }else {
+//       conv.ask("Silahkan Pilih Surah")
+// }
+// });
 
-// Handle a media status event
-app.intent('media status', (conv) => {
-  const mediaStatus = conv.arguments.get('MEDIA_STATUS');
-  let response = 'Unknown media status received.';
-  if (mediaStatus && mediaStatus.status === 'FINISHED') {
-    response = 'Hope you enjoyed the tunes!';
-  }
-  conv.ask(response);
-  conv.ask(new Suggestions(BOOK_NAME));
-});
+// // Handle a media status event
+// app.intent('media status', (conv) => {
+//   const mediaStatus = conv.arguments.get('MEDIA_STATUS');
+//   let response = 'Unknown media status received.';
+//   if (mediaStatus && mediaStatus.status === 'FINISHED') {
+//     response = 'Hope you enjoyed the tunes!';
+//   }
+//   conv.ask(response);
+//   conv.ask(new Suggestions(BOOK_NAME));
+// });
 
 
 
