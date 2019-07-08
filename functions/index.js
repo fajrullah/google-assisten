@@ -188,6 +188,7 @@ app.intent('intent_murottal', (conv) => {
                 alt: 'Surah An-Naas',
               }),
             }));
+            conv.ask(new Suggestions(BOOK_NAME));
 
   }else if (quran === "annaas") {
       if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
@@ -217,7 +218,7 @@ app.intent('media status', (conv) => {
     response = 'Hope you enjoyed the tunes!';
   }
   conv.ask(response);
-  conv.ask(new Suggestions(intentSuggestions));
+  conv.ask(new Suggestions(BOOK_NAME));
 });
 
 
