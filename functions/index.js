@@ -133,15 +133,16 @@ const Contexts = {
     ONE_MORE: 'one_more'
 };
 
-const SUGGEST = new Array("Murottal Al-Quran",
-                          "Murottal dan Terjemahan",
-                          "Do’a-do’a",
-                          "Ayat-Ayat Tematik",
-                          "Informasi Produk"
+// const SUGGEST = new Array("Murottal Al-Quran",
+//                           "Murottal dan Terjemahan",
+//                           "Do’a-do’a",
+//                           "Ayat-Ayat Tematik",
+//                           "Informasi Produk"
                     );
 
 const BOOK_NAME = new Array("Surah Alfatihah",
                             "Surah Yasin",
+                            "Surah An-Nas",
                         // "alwaqiah" => "Surah Al Waqiah",
                         // "almulk" => "Surah Al-Mulk",
                         // "arrahman" => "Surah Ar-Rahman",
@@ -162,8 +163,8 @@ var database = admin.database();
 
 
 app.intent('start_app', (conv) => {
-    const initMessage = "Assalamualaikum! Selamat datang di Al-Qolam! \n Kami siap menemani Anda untuk belajar, membaca dan mendengarkan Al-Qur’an. Apa yang ingin Anda baca dan dengarkan? ";
-    return getMessageFromQuote(initMessage,conv,SUGGEST);
+    const initMessage = "Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a \n surah atau do'a apa yang ingin anda dengarkan.?";
+    return getMessageFromQuote(initMessage,conv,BOOK_NAME);
 });
 
 app.intent('intent_murottal', (conv) => {
