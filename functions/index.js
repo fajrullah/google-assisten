@@ -99,14 +99,16 @@ var config = {
   appId: "1:1029740290293:web:48e370ba0f90155a"
 };
 
-const select_smart_hafiz = 'smarthafiz';
-const select_hafiz_doll = 'hafizdoll';
+const quran = require('./quran');
+
+const smart_hafiz = 'smarthafiz';
+const hafiz_doll = 'hafizdoll';
 
 
 // Constants for selected item responses
 const PRODUCTS_RESPONSES = {
-   'smart_hafiz' : 'Anda memilih Smart Hafiz',
-   'hafiz_doll' : 'Anda memilih Hafiz Doll',
+   [smart_hafiz] : 'Anda memilih Smart Hafiz',
+   [hafiz_doll] : 'Anda memilih Hafiz Doll',
 };
 
 
@@ -167,10 +169,10 @@ app.intent('start_app', (conv) => {
     return getMessageFromQuote(initMessage,conv,BOOK_NAME);
 });
 
-app.intent('intent_murottal', (conv) => {
-   const initMessage = `Baik. Surah apa yang ingin Anda baca dan dengarkan? `;
-    return getMessageFromQuote(initMessage,conv,BOOK_NAME);
-});
+// app.intent('intent_murottal', (conv) => {
+//    const initMessage = `Baik. Surah apa yang ingin Anda baca dan dengarkan? `;
+//     return getMessageFromQuote(initMessage,conv,BOOK_NAME);
+// });
 
 // app.intent('one_more_yes', (conv) => {
 //     const initMessage = `Baik, ini kata kata mutiara yang lain`;
@@ -198,7 +200,7 @@ app.intent('quit_app', (conv) => {
     title: 'Produk Edukasi Anak Dari Alqolam',
     items: {
       // Add the first item to the list
-      'smart_hafiz' : {
+      [smart_hafiz] : {
         synonyms: [
           'Smart Hafiz',
           'smart hafiz',
@@ -211,7 +213,7 @@ app.intent('quit_app', (conv) => {
         }),
       },
       // Add the second item to the list
-       'hafiz_doll' : {
+       [hafiz_doll] : {
         synonyms: [
           'Hafiz Doll',
           'hafiz doll',
