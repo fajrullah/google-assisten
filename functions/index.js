@@ -172,8 +172,12 @@ app.intent('start_app', (conv) => {
 
 // Quran Basic Card With Media Sample
 app.intent('intent_murottal', (conv) => {
-  const quran_surah = conv.parameters['quran'].toLowerCase();
-  if (quran_surah === "alfatihah") {
+  const quran = conv.parameters['quran'].toLowerCase();
+  if (quran === "alfatihah") {
+            if (!conv.hasAudioPlayback) {
+            conv.close('Sorry, this device does not support audio playback.')
+            return;
+    }
              conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
              conv.ask(new MediaObject({
               name: 'Surah Al-Fatihah',
@@ -185,7 +189,11 @@ app.intent('intent_murottal', (conv) => {
               }),
             }));
 
-  }else if (quran_surah === "annaas") {
+  }else if (quran === "annaas") {
+    if (!conv.hasAudioPlayback) {
+      conv.close('Sorry, this device does not support audio playback.')
+      return;
+      }
       conv.ask("Murotal Surah An-Naas");
       conv.ask(new MediaObject({
         name: 'Surah An-Naas',
