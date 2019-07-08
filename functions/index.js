@@ -168,7 +168,39 @@ app.intent('start_app', (conv) => {
 });
 
 // Call Quran.js
-const quran = require('./quran');
+// const quran = require('./quran');
+
+// Quran Basic Card With Media Sample
+app.intent('intent_murottal', (conv) => {
+  const quran_surah = conv.parameters['quran'].toLowerCase();
+  if (quran_surah === "alfatihah") {
+             conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
+             conv.ask(new MediaObject({
+              name: 'Surah Al-Fatihah',
+              url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
+              description: 'Surah Al-Fatihah Ayat 1 - 7',
+              icon: new Image({
+                url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/title/00%20Surah%20title.png',
+                alt: 'Surah Al-Fatihah',
+              }),
+            }));
+
+  }else if (quran_surah === "annaas") {
+      conv.ask("Murotal Surah An-Naas");
+      conv.ask(new MediaObject({
+        name: 'Surah An-Naas',
+        url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
+        description: 'A funky Jazz tune',
+        icon: new Image({
+          url: 'https://storage.googleapis.com/automotive-media/album_art.jpg',
+          alt: 'Surah An-Naas',
+        }),
+      }));
+  }else {
+      conv.ask("Silahkan Pilih Surah")
+}
+});
+
 
 // app.intent('intent_murottal', (conv) => {
 //    const initMessage = `Baik. Surah apa yang ingin Anda baca dan dengarkan? `;
