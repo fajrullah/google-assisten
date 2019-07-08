@@ -163,7 +163,7 @@ var database = admin.database();
 
 
 app.intent('start_app', (conv) => {
-    const initMessage = "Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a \n surah atau do'a apa yang ingin anda dengarkan.?";
+    const initMessage = "Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a. \n Surah atau do'a apa yang ingin anda dengarkan.?";
     return getMessageFromQuote(initMessage,conv,BOOK_NAME);
 });
 
@@ -198,7 +198,7 @@ app.intent('quit_app', (conv) => {
     title: 'Produk Edukasi Anak Dari Alqolam',
     items: {
       // Add the first item to the list
-      select_smart_hafiz : {
+      [select_smart_hafiz] : {
         synonyms: [
           'Smart Hafiz',
           'smart hafiz',
@@ -211,7 +211,7 @@ app.intent('quit_app', (conv) => {
         }),
       },
       // Add the second item to the list
-      select_hafiz_doll : {
+      [select_hafiz_doll] : {
         synonyms: [
           'Hafiz Doll',
           'hafiz doll',
