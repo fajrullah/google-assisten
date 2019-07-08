@@ -180,7 +180,7 @@ app.intent('intent_murottal', (conv) => {
       return;
   }
              conv.close("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
-             conv.close(new MediaObject({
+             conv.ask(new MediaObject({
               name: 'Surah Al-Fatihah',
               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
               description: 'Surah Al-Fatihah Ayat 1 - 7',
@@ -196,7 +196,7 @@ app.intent('intent_murottal', (conv) => {
         return;
         }
         conv.close("Murotal Surah An-Naas");
-        conv.close(new MediaObject({
+        conv.ask(new MediaObject({
         name: 'Surah An-Naas',
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
         description: 'A funky Jazz tune',
@@ -206,7 +206,7 @@ app.intent('intent_murottal', (conv) => {
         }),
       }));
   }else {
-      conv.close("Silahkan Pilih Surah")
+      conv.ask("Silahkan Pilih Surah")
 }
 });
 
