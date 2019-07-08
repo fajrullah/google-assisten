@@ -185,7 +185,7 @@ app.intent('intent_murottal', (conv) => {
               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/title/00%20Surah%20title.png',
               alt: 'Surah Alfatihah',
             }),
-          });
+          }));
              conv.close(new MediaObject({
               name: 'Surah Al-Fatihah',
               url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
