@@ -5,8 +5,6 @@ const {
   MediaObject,
  } = require('actions-on-google');
 
- const app = dialogflow()
-
 app.intent('intent_murottal', (conv) => {
     const quran = conv.parameters['quran'].toLowerCase();
     if (quran === "alfatihah") {
@@ -39,3 +37,7 @@ app.intent('intent_murottal', (conv) => {
 
 
 module.exports = quran;
+function newFunction() {
+  return dialogflow();
+}
+

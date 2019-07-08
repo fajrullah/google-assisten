@@ -99,8 +99,6 @@ var config = {
   appId: "1:1029740290293:web:48e370ba0f90155a"
 };
 
-const quran = require('./quran');
-
 const smart_hafiz = 'smarthafiz';
 const hafiz_doll = 'hafizdoll';
 
@@ -168,6 +166,9 @@ app.intent('start_app', (conv) => {
     const initMessage = "Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a. \n Surah atau do'a apa yang ingin anda dengarkan.?";
     return getMessageFromQuote(initMessage,conv,BOOK_NAME);
 });
+
+// Call Quran.js
+const quran = require('./quran');
 
 // app.intent('intent_murottal', (conv) => {
 //    const initMessage = `Baik. Surah apa yang ingin Anda baca dan dengarkan? `;
