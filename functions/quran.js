@@ -5,9 +5,11 @@ const {
   MediaObject,
  } = require('actions-on-google');
 
-app.intent('intent_murottal', (conv) => {
-    const quran = conv.parameters['quran'].toLowerCase();
-    if (quran === "alfatihah") {
+ const quran = dialogflow()
+
+quran.intent('intent_murottal', (conv) => {
+    const quran_surah = conv.parameters['quran'].toLowerCase();
+    if (quran_surah === "alfatihah") {
                conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
                conv.ask(new MediaObject({
                 name: 'Surah Al-Fatihah',
@@ -19,7 +21,7 @@ app.intent('intent_murottal', (conv) => {
                 }),
               }));
   
-    }else if (quran === "annaas") {
+    }else if (quran_surah === "annaas") {
         conv.ask("Murotal Surah An-Naas");
         conv.ask(new MediaObject({
           name: 'Surah An-Naas',
@@ -36,8 +38,4 @@ app.intent('intent_murottal', (conv) => {
   });
 
 
-module.exports = quran;
-function newFunction() {
-  return dialogflow();
-}
-
+exports.quran = quran;
