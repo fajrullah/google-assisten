@@ -174,10 +174,10 @@ app.intent('start_app', (conv) => {
 app.intent('intent_murottal', (conv) => {
   const quran = conv.parameters['quran'].toLowerCase();
   if (quran === "alfatihah") {
-    //         if (!conv.hasAudioPlayback) {
-    //         conv.close('Sorry, this device does not support audio playback.')
-    //         return;
-    // }
+            if (!conv.hasAudioPlayback) {
+            conv.close('Sorry, this device does not support audio playback.')
+            return;
+    }
              conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
              conv.ask(new MediaObject({
               name: 'Surah Al-Fatihah',
@@ -207,6 +207,17 @@ app.intent('intent_murottal', (conv) => {
   }else {
       conv.ask("Silahkan Pilih Surah")
 }
+});
+
+// Handle a media status event
+app.intent('media status', (conv) => {
+  const mediaStatus = conv.arguments.get('MEDIA_STATUS');
+  let response = 'Unknown media status received.';
+  if (mediaStatus && mediaStatus.status === 'FINISHED') {
+    response = 'Hope you enjoyed the tunes!';
+  }
+  conv.ask(response);
+  conv.ask(new Suggestions(intentSuggestions));
 });
 
 
