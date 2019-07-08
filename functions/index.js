@@ -179,7 +179,6 @@ app.intent('intent_murottal', (conv) => {
       conv.ask('Sorry, this device does not support audio playback.');
       return;
   }
-    }
              conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
              conv.ask(new MediaObject({
               name: 'Surah Al-Fatihah',
