@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const { dialogflow, BasicCard, BrowseCarousel, BrowseCarouselItem, Button, Carousel, Image, LinkOutSuggestion, List, MediaObject, Suggestions, SimpleResponse, Table } = require('actions-on-google');
 
+module.exports = {
     // Quran Basic Card With Media Sample
 app.intent('intent_murottal', (conv) => {
   const quran = conv.parameters['quran'].toLowerCase();
@@ -51,6 +52,4 @@ app.intent('media status', (conv) => {
   conv.ask(response);
   conv.ask(new Suggestions(BOOK_NAME));
 });
-
-
-module.exports = alqolam;
+}
