@@ -211,4 +211,4 @@ function getMessageFromQuote(initMessage, conv, sugest) {
 }
 
 // HTTP Cloud Function for Firebase handler
-exports.testLocal = functions.https.onRequest(app);
+exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
