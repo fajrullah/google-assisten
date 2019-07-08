@@ -105,8 +105,8 @@ const select_hafiz_doll = 'hafizdoll';
 
 // Constants for selected item responses
 const PRODUCTS_RESPONSES = {
-   [select_smart_hafiz] : 'Anda memilih Smart Hafiz',
-   [select_hafiz_doll] : 'Anda memilih Hafiz Doll',
+   'smart_hafiz' : 'Anda memilih Smart Hafiz',
+   'hafiz_doll' : 'Anda memilih Hafiz Doll',
 };
 
 
@@ -198,7 +198,7 @@ app.intent('quit_app', (conv) => {
     title: 'Produk Edukasi Anak Dari Alqolam',
     items: {
       // Add the first item to the list
-      [select_smart_hafiz] : {
+      'smart_hafiz' : {
         synonyms: [
           'Smart Hafiz',
           'smart hafiz',
@@ -211,7 +211,7 @@ app.intent('quit_app', (conv) => {
         }),
       },
       // Add the second item to the list
-      [select_hafiz_doll] : {
+       'hafiz_doll' : {
         synonyms: [
           'Hafiz Doll',
           'hafiz doll',
@@ -229,7 +229,7 @@ app.intent('quit_app', (conv) => {
 
 
 // Handle list or carousel selection
-app.intent('item selected', (conv, params, option) => {
+app.intent('pilih_produk', (conv, params, option) => {
   let response = 'Silahkan Pilih Produk';
   if (option && PRODUCTS_RESPONSES.hasOwnProperty(option)) {
     response = PRODUCTS_RESPONSES[option];
