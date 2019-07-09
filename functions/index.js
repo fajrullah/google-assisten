@@ -16,12 +16,10 @@ const PRODUCTS_RESPONSES = {
 // require("./component/getEndingMessage");
 // require("./component/getSuggestion");
 
-const SUGGEST = new Array(
-    "Murottal Al-Quran",
-    "Murottal dan Terjemahan",
-    "Do’a-do’a",
-    "Ayat-Ayat Tematik",
-    "Informasi Produk"
+const intentSuggestions = new Array(
+    "Smart Hafiz",
+    "Hafiz Doll",
+    "Alquran Al-Fatih",
 );
 
 const BOOK_NAME = new Array(
@@ -99,7 +97,7 @@ app.intent('media status', (conv) => {
 // Start List Product
 app.intent('quit_app', (conv) => {
   conv.ask('Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini');
-  // conv.ask(new Suggestions(intentSuggestions));
+  conv.ask(new Suggestions(intentSuggestions));
   conv.ask(new List({
     title: 'Produk Edukasi Anak Dari Alqolam',
     items: {
@@ -131,6 +129,7 @@ app.intent('quit_app', (conv) => {
       },
     },
   }));
+
 });
 // End List Product
 
@@ -143,7 +142,7 @@ app.intent('pilih_produk', (conv, params, option) => {
     response = 'Terimakasih, silahkan kembali lagi apabila Anda tertarik dengan produk kami';
   }
   conv.ask(response);
-  // conv.ask(new Suggestions(intentSuggestions));
+  conv.ask(new Suggestions(intentSuggestions));
 });
 
 // Start Detail Product
