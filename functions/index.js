@@ -27,6 +27,21 @@ const PRODUCTS_RESPONSES = {
     [hafiz_doll]: 'Anda memilih Hafiz Doll',
 };
 
+
+// Constants for selected item responses
+const SELECTED_ITEM_RESPONSES = {
+  [SELECTION_KEY_GOOGLE_ASSISTANT]: 'You selected Google Assistant!',
+  [SELECTION_KEY_GOOGLE_PAY]: 'You selected Google Pay!',
+  [SELECTION_KEY_GOOGLE_PIXEL]: 'You selected Google Pixel!',
+  [SELECTION_KEY_GOOGLE_HOME]: 'You selected Google Home!',
+};
+
+// Constants for list and carousel selection
+const SELECTION_KEY_GOOGLE_ASSISTANT = 'googleAssistant';
+const SELECTION_KEY_GOOGLE_PAY = 'googlePay';
+const SELECTION_KEY_GOOGLE_PIXEL = 'googlePixel';
+const SELECTION_KEY_GOOGLE_HOME = 'googleHome';
+
 const callFunction = require('./component/getEndingMessage');
 const {
     SUGGEST,
@@ -99,6 +114,80 @@ app.intent('media status', (conv) => {
     conv.ask(new Suggestions(BOOK_NAME));
 });
 
+
+// Carousel
+app.intent('carousel', (conv) => {
+  conv.ask('This is an example of a carousel.');
+  conv.ask(new Suggestions(intentSuggestions));
+  conv.ask(new Carousel({
+    items: {
+      // Add the first item to the carousel
+      [SELECTION_KEY_GOOGLE_ASSISTANT]: {
+        synonyms: [
+          'Assistant',
+          'Google Assistant',
+        ],
+        title: 'Item #1',
+        description: 'Description of Item #1',
+        image: new Image({
+          url: IMG_URL_AOG,
+          alt: 'Google Assistant logo',
+        }),
+      },
+      // Add the second item to the carousel
+      [SELECTION_KEY_GOOGLE_PAY]: {
+        synonyms: [
+          'Transactions',
+          'Google Payments',
+      ],
+        title: 'Item #2',
+        description: 'Description of Item #2',
+        image: new Image({
+          url: IMG_URL_GOOGLE_PAY,
+          alt: 'Google Pay logo',
+        }),
+      },
+      // Add third item to the carousel
+      [SELECTION_KEY_GOOGLE_PIXEL]: {
+        synonyms: [
+          'Pixel',
+          'Google Pixel phone',
+        ],
+        title: 'Item #3',
+        description: 'Description of Item #3',
+        image: new Image({
+          url: IMG_URL_GOOGLE_PIXEL,
+          alt: 'Google Pixel phone',
+        }),
+      },
+      // Add last item of the carousel
+      [SELECTION_KEY_GOOGLE_HOME]: {
+        title: 'Item #4',
+        synonyms: [
+          'Google Home',
+        ],
+        description: 'Description of Item #4',
+        image: new Image({
+          url: IMG_URL_GOOGLE_HOME,
+          alt: 'Google Home',
+        }),
+      },
+    },
+  }));
+});
+
+
+// Handle list or carousel only
+app.intent('item selected', (conv, params, option) => {
+  let response = 'You did not select any item from the list or carousel';
+  if (option && SELECTED_ITEM_RESPONSES.hasOwnProperty(option)) {
+    response = SELECTED_ITEM_RESPONSES[option];
+  } else {
+    response = 'You selected an unknown item from the list or carousel';
+  }
+  conv.ask(response);
+  conv.ask(new Suggestions(intentSuggestions));
+});
 
 
 // Start List Product
