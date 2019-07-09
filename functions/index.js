@@ -99,7 +99,8 @@ app.intent('quit_app', (conv) => {
         title: 'Produk Edukasi Anak Dari Alqolam',
         items: {
                 // First Item
-                [SMART_HAFIZ] : synonyms: [
+                [SMART_HAFIZ]: {
+                synonyms: [
                   'Smart',
                   'smarthafiz',
                 ],
@@ -108,10 +109,11 @@ app.intent('quit_app', (conv) => {
                 image: new Image({
                     url: 'https://www.gstatic.com/images/branding/product/2x/assistant_48dp.png',
                     alt: 'Google Assistant logo',
-                }),
+                })
+               },
             // Add the second item to the list
-                [HAFIZ_DOLL]: 
-                [SMART_HAFIZ] : synonyms: [
+                [HAFIZ_DOLL]: { 
+                  synonyms: [
                   'Smart',
                   'smarthafiz',
                 ],
@@ -120,7 +122,9 @@ app.intent('quit_app', (conv) => {
                 image: new Image({
                     url: 'https://www.gstatic.com/images/branding/product/2x/pay_48dp.png',
                     alt: 'Google Pay logo',
-                }),
+                })
+              },
+      
             },
     }));
   
