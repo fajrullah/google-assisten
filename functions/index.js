@@ -17,8 +17,8 @@ const {
     Table
 } = require('actions-on-google');
 
-const SMART_HAFIZ = 'googleAssistant';
-const HAFIZ_DOLL = 'googlePay';
+const SMART_HAFIZ = 'SMART_HAFIZ';
+const HAFIZ_DOLL = 'HAFIZ_DOLL';
 
 // Constant for image URLs
 const IMG_URL_AOG = 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png';
@@ -174,11 +174,11 @@ app.intent('quit_app', (conv) => {
 // });
 // End List Product
 
-// Handle list
+// Handle Produk
 app.intent('pilih_produk', (conv, input, option) => {
-  if (option === SMART_HAFIZ) {
-    conv.close("ini produk smart hafiz"); // this Simple Response is necessary
-        conv.close(new BasicCard({
+  if (option === "SMART_HAFIZ") {
+    conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
+        conv.ask(new BasicCard({
             image: new Image({
                 url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
                 alt: 'Smart Hafiz',
@@ -192,7 +192,7 @@ app.intent('pilih_produk', (conv, input, option) => {
             }),
         }));
   } else {
-    conv.close('Number two is also a great choice!')
+    conv.ask('Number two is also a great choice!')
   }
 })
 
