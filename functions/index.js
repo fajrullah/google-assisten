@@ -35,29 +35,7 @@ const SELECTION_KEY_GOOGLE_HOME = 'googleHome';
 
 // Constants for selected item responses
 const SELECTED_ITEM_RESPONSES = {
-  [SELECTION_KEY_GOOGLE_ASSISTANT]: {
-    conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
-        conv.ask(new BasicCard({
-            image: new Image({
-                url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
-                alt: 'Smart Hafiz',
-            }),
-            title: 'Smart Hafiz',
-            subtitle: 'Bermain & belajar bersama Smart Hafiz',
-            text: 'Produk Edukasi Visual untuk anak meningkatkan kecerdasan motorik dan dapat belajar bersama smart hafiz',
-            buttons: new Button({
-                title: 'Selengkapnya',
-                url: 'https://alqolam.com',
-            }),
-        }));
-        conv.ask(new SimpleResponse({
-            speech: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-            text: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-        }));
-  }
-
-
-
+  [SELECTION_KEY_GOOGLE_ASSISTANT]: 'Smart Hafiz',
   [SELECTION_KEY_GOOGLE_PAY]: 'You selected Google Pay!',
   [SELECTION_KEY_GOOGLE_PIXEL]: 'You selected Google Pixel!',
   [SELECTION_KEY_GOOGLE_HOME]: 'You selected Google Home!',
