@@ -182,6 +182,8 @@ app.intent('detail_product', (conv) => {
 });
 // End Detail Product
 
+
+
 // Start Intent Tidak Tau
 app.intent('Default Fallback Intent', (conv) => {
     console.log(conv.data.fallbackCount);
@@ -191,11 +193,11 @@ app.intent('Default Fallback Intent', (conv) => {
     conv.data.fallbackCount++;
     // Provide two prompts before ending game
     if (conv.data.fallbackCount === 1) {
-        return conv.ask(new Suggestions('Ya', 'Tidak'), new SimpleResponse("Apakah Anda ingin mendengarkan Al-Quran.?? Surat Aapa yang ingin anda dengar?"));
+        return conv.ask(new Suggestions('Ya', 'Tidak'), new SimpleResponse("Maaf, Kami tidak mengerti maksud Anda, Apakah anda ingin mendengarkan murottal Alquran?"));
     } else if (conv.data.fallbackCount === 2) {
-        return conv.ask(new Suggestions('Ya', 'Tidak'), new SimpleResponse("Selamat datang di Him Speaking, Berbagi Kata kata mutiara dengan Him Speak, Selamat mendengarkan"));
+        return conv.ask(new Suggestions('Ya', 'Tidak'), new SimpleResponse("Terdapat 114 Surah dalam Al-Quran, Surah apa yang ingin Anda dengarkan.?"));
     }
-    return conv.close("Saya tidak mengerti, Semoga hari Anda Menyenangkan");
+    return conv.close("Mohon maaf kami belum mengerti maksud Anda, Silahkan datang kembali.");
 });
 // End Intent Tidak Tau
 
