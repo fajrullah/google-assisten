@@ -27,6 +27,11 @@ const PRODUCTS_RESPONSES = {
     [hafiz_doll]: 'Anda memilih Hafiz Doll',
 };
 
+// Constants for list and carousel selection
+const SELECTION_KEY_GOOGLE_ASSISTANT = 'googleAssistant';
+const SELECTION_KEY_GOOGLE_PAY = 'googlePay';
+const SELECTION_KEY_GOOGLE_PIXEL = 'googlePixel';
+const SELECTION_KEY_GOOGLE_HOME = 'googleHome';
 
 // Constants for selected item responses
 const SELECTED_ITEM_RESPONSES = {
@@ -35,12 +40,6 @@ const SELECTED_ITEM_RESPONSES = {
   [SELECTION_KEY_GOOGLE_PIXEL]: 'You selected Google Pixel!',
   [SELECTION_KEY_GOOGLE_HOME]: 'You selected Google Home!',
 };
-
-// Constants for list and carousel selection
-const SELECTION_KEY_GOOGLE_ASSISTANT = 'googleAssistant';
-const SELECTION_KEY_GOOGLE_PAY = 'googlePay';
-const SELECTION_KEY_GOOGLE_PIXEL = 'googlePixel';
-const SELECTION_KEY_GOOGLE_HOME = 'googleHome';
 
 const callFunction = require('./component/getEndingMessage');
 const {
