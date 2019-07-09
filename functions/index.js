@@ -208,14 +208,14 @@ app.intent('quit_app', (conv) => {
                 image: new Image({
                     url: 'https://www.gstatic.com/images/branding/product/2x/assistant_48dp.png',
                     alt: 'Google Assistant logo',
-                })},
+                }), }
             // Add the second item to the list
-                {title: 'hafiz doll',
+                { title: 'hafiz doll',
                 description: 'hafiz doll bilingual description',
                 image: new Image({
                     url: 'https://www.gstatic.com/images/branding/product/2x/pay_48dp.png',
                     alt: 'Google Pay logo',
-                })},
+                }), }
             },
     }));
   
