@@ -77,6 +77,7 @@ app.intent('intent_murottal', (conv) => {
           alt: 'Surah An-Naas',
         }),
       }));
+      conv.ask(new Suggestions(BOOK_NAME));
   }else {
       conv.ask("Silahkan Pilih Surah")
 }
@@ -142,7 +143,7 @@ app.intent('pilih_produk', (conv, params, option) => {
     response = 'Terimakasih, silahkan kembali lagi apabila Anda tertarik dengan produk kami';
   }
   conv.ask(response);
-  conv.ask(new Suggestions(intentSuggestions));
+  // conv.ask(new Suggestions(intentSuggestions));
 });
 
 // Start Detail Product
