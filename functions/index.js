@@ -33,28 +33,9 @@ const SELECTION_KEY_GOOGLE_PAY = 'googlePay';
 const SELECTION_KEY_GOOGLE_PIXEL = 'googlePixel';
 const SELECTION_KEY_GOOGLE_HOME = 'googleHome';
 
-// Constants for selected item responses
+Constants for selected item responses
 const SELECTED_ITEM_RESPONSES = {
-  [SELECTION_KEY_GOOGLE_ASSISTANT]: app.intent('detail_product', (conv) => {
-    conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
-    conv.ask(new BasicCard({
-        image: new Image({
-            url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
-            alt: 'Smart Hafiz',
-        }),
-        title: 'Smart Hafiz',
-        subtitle: 'Bermain & belajar bersama Smart Hafiz',
-        text: 'Produk Edukasi Visual untuk anak meningkatkan kecerdasan motorik dan dapat belajar bersama smart hafiz',
-        buttons: new Button({
-            title: 'Selengkapnya',
-            url: 'https://alqolam.com',
-        }),
-    }));
-    conv.ask(new SimpleResponse({
-        speech: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-        text: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-    })); 
-  },
+  [SELECTION_KEY_GOOGLE_ASSISTANT]: 'Smart Hafiz',
   [SELECTION_KEY_GOOGLE_PAY]: 'You selected Google Pay!',
   [SELECTION_KEY_GOOGLE_PIXEL]: 'You selected Google Pixel!',
   [SELECTION_KEY_GOOGLE_HOME]: 'You selected Google Home!',
@@ -218,28 +199,17 @@ app.intent('item selected', (conv, params, option) => {
 app.intent('quit_app', (conv) => {
     conv.ask('Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini');
     conv.ask(new Suggestions(intentSuggestions));
-    conv.ask(new List({
+    conv.ask(new List({  
         title: 'Produk Edukasi Anak Dari Alqolam',
         items: {
-            // Add the first item to the list
-            [smart_hafiz]: {
-                synonyms: [
-                    'Smart Hafiz',
-                    'smart hafiz',
-                ],
+                // First Item
                 title: 'Smart Hafiz',
                 description: 'Smart Hafiz Deskripsi',
                 image: new Image({
                     url: 'https://www.gstatic.com/images/branding/product/2x/assistant_48dp.png',
                     alt: 'Google Assistant logo',
                 }),
-            },
             // Add the second item to the list
-            [hafiz_doll]: {
-                synonyms: [
-                    'Hafiz Doll',
-                    'hafiz doll',
-                ],
                 title: 'hafiz doll',
                 description: 'hafiz doll bilingual description',
                 image: new Image({
@@ -247,9 +217,8 @@ app.intent('quit_app', (conv) => {
                     alt: 'Google Pay logo',
                 }),
             },
-        },
     }));
-
+  
 });
 // End List Product
 
