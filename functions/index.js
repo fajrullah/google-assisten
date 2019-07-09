@@ -54,7 +54,7 @@ const SELECTED_ITEM_RESPONSES = {
         speech: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
         text: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
     })); 
-  }
+  },
   [SELECTION_KEY_GOOGLE_PAY]: 'You selected Google Pay!',
   [SELECTION_KEY_GOOGLE_PIXEL]: 'You selected Google Pixel!',
   [SELECTION_KEY_GOOGLE_HOME]: 'You selected Google Home!',
