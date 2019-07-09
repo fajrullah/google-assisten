@@ -98,7 +98,7 @@ app.intent('media status', (conv) => {
 });
 
 
-app.intent('detail_product', (conv) => {
+app.intent('quit_app', (conv) => {
   conv.ask('Produk Alqolam');
   // conv.ask(new Suggestions(intentSuggestions));
   conv.ask(new Carousel({
