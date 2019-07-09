@@ -134,8 +134,8 @@ app.intent('quit_app', (conv) => {
 // Handle list
 app.intent('pilih_produk', (conv, input, option) => {
   if (option === SMART_HAFIZ) {
-    conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
-        conv.ask(new BasicCard({
+    conv.close("ini produk smart hafiz"); // this Simple Response is necessary
+        conv.close(new BasicCard({
             image: new Image({
                 url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
                 alt: 'Smart Hafiz',
@@ -149,7 +149,7 @@ app.intent('pilih_produk', (conv, input, option) => {
             }),
         }));
   } else {
-    conv.ask('Number two is also a great choice!')
+    conv.close('Number two is also a great choice!')
   }
 })
 
