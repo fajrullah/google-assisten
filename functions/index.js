@@ -41,6 +41,12 @@ const SELECTED_ITEM_RESPONSES = {
   [SELECTION_KEY_GOOGLE_HOME]: 'You selected Google Home!',
 };
 
+
+const IMG_URL_AOG = 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png';
+const IMG_URL_GOOGLE_PAY = 'https://storage.googleapis.com/actionsresources/logo_pay_64dp.png';
+const IMG_URL_GOOGLE_PIXEL = "https://storage.googleapis.com/madebygoog/v1/Pixel/Pixel_ColorPicker/Pixel_Device_Angled_Black-720w.png";
+const IMG_URL_GOOGLE_HOME = "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw";
+
 const callFunction = require('./component/getEndingMessage');
 const {
     SUGGEST,
