@@ -17,6 +17,13 @@ const {
     Table
 } = require('actions-on-google');
 
+const SMART_HAFIZ = 'googleAssistant';
+const HAFIZ_DOLL = 'googlePay';
+
+// Constant for image URLs
+const IMG_URL_AOG = 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png';
+const IMG_URL_GOOGLE_PAY = 'https://storage.googleapis.com/actionsresources/logo_pay_64dp.png';
+
 
 const callFunction = require('./component/getEndingMessage');
 const {
@@ -91,44 +98,80 @@ app.intent('media status', (conv) => {
 });
 
 
-// Start List Product
-app.intent('quit_app', (conv) => {
-    conv.ask('Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini');
-    conv.ask(new Suggestions(intentSuggestions));
-    conv.ask(new List({  
-        title: 'Produk Edukasi Anak Dari Alqolam',
-        items: {
-                // First Item
-                [SMART_HAFIZ]: {
-                synonyms: [
-                  'Smart',
-                  'smarthafiz',
-                ],
-                title: 'Smart Hafiz',
-                description: 'Smart Hafiz Deskripsi',
-                image: new Image({
-                    url: 'https://www.gstatic.com/images/branding/product/2x/assistant_48dp.png',
-                    alt: 'Google Assistant logo',
-                })
-               },
-            // Add the second item to the list
-                [HAFIZ_DOLL]: { 
-                  synonyms: [
-                  'Smart',
-                  'smarthafiz',
-                ],
-                title: 'hafiz doll',
-                description: 'hafiz doll bilingual description',
-                image: new Image({
-                    url: 'https://www.gstatic.com/images/branding/product/2x/pay_48dp.png',
-                    alt: 'Google Pay logo',
-                })
-              },
-      
-            },
-    }));
-  
+app.intent('detail_product', (conv) => {
+  conv.ask('Produk Alqolam');
+  // conv.ask(new Suggestions(intentSuggestions));
+  conv.ask(new Carousel({
+    items: {
+      // Add the first item to the carousel
+      [SMART_HAFIZ]: {
+        synonyms: [
+          'Assistant',
+          'Google Assistant',
+        ],
+        title: 'Item #1',
+        description: 'Description of Item #1',
+        image: new Image({
+          url: IMG_URL_AOG,
+          alt: 'Google Assistant logo',
+        }),
+      },
+      // Add the second item to the carousel
+      [HAFIZ_DOLL]: {
+        synonyms: [
+          'Transactions',
+          'Google Payments',
+      ],
+        title: 'Item #2',
+        description: 'Description of Item #2',
+        image: new Image({
+          url: IMG_URL_GOOGLE_PAY,
+          alt: 'Google Pay logo',
+        }),
+      },
+    },
+  }));
 });
+
+
+// Start List Product
+// app.intent('quit_app', (conv) => {
+//     conv.ask('Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini');
+//     // conv.ask(new Suggestions(intentSuggestions));
+//     conv.ask(new List({  
+//         title: 'Produk Edukasi Anak Dari Alqolam',
+//         items: {
+//                 // First Item
+//                 [SMART_HAFIZ]: {
+//                 synonyms: [
+//                   'Smart',
+//                   'smarthafiz',
+//                 ],
+//                 title: 'Smart Hafiz',
+//                 description: 'Smart Hafiz Deskripsi',
+//                 image: new Image({
+//                     url: 'https://www.gstatic.com/images/branding/product/2x/assistant_48dp.png',
+//                     alt: 'Google Assistant logo',
+//                 })
+//                },
+//             // Add the second item to the list
+//                 [HAFIZ_DOLL]: { 
+//                   synonyms: [
+//                   'Smart',
+//                   'smarthafiz',
+//                 ],
+//                 title: 'hafiz doll',
+//                 description: 'hafiz doll bilingual description',
+//                 image: new Image({
+//                     url: 'https://www.gstatic.com/images/branding/product/2x/pay_48dp.png',
+//                     alt: 'Google Pay logo',
+//                 })
+//               },
+      
+//             },
+//     }));
+  
+// });
 // End List Product
 
 // Handle list
