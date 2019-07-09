@@ -33,7 +33,7 @@ const SELECTION_KEY_GOOGLE_PAY = 'googlePay';
 const SELECTION_KEY_GOOGLE_PIXEL = 'googlePixel';
 const SELECTION_KEY_GOOGLE_HOME = 'googleHome';
 
-Constants for selected item responses
+// Constants for selected item responses
 const SELECTED_ITEM_RESPONSES = {
   [SELECTION_KEY_GOOGLE_ASSISTANT]: 'Smart Hafiz',
   [SELECTION_KEY_GOOGLE_PAY]: 'You selected Google Pay!',
