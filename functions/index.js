@@ -300,7 +300,7 @@ app.intent('get-option', (conv, _input, option) => {
 })
 
 // Start Detail Product without list
-app.intent('detail_product', (conv) => {
+app.intent('without_list', (conv) => {
     const product_type = conv.parameters['product_type'].toLowerCase();
     if (product_type === "smart hafiz") {
       conv.ask("Smart Hafiz Mainan Edukasi Visual Untuk Anak"); // this Simple Response is necessary
