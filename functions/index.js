@@ -300,7 +300,7 @@ app.intent('get-option', (conv, _input, option) => {
 })
 
 // Start Detail Product without list
-app.intent('without_list', (conv) => {
+app.intent('without_list', (conv) => {  
     const product_type = conv.parameters['product_type'].toLowerCase();
     if (product_type === "smart hafiz") {
       conv.ask("Smart Hafiz Mainan Edukasi Visual Untuk Anak"); // this Simple Response is necessary
@@ -335,11 +335,80 @@ app.intent('without_list', (conv) => {
           }),
       }));
       conv.ask(new Suggestions(product_suggestion));
-    } else {
+    } 
+    else if (product_type === "alfatih") {
+      conv.ask("Alquran dengan talking pen Mushaf Alfatih"); // this Simple Response is necessary
+        conv.ask(new BasicCard({
+            image: new Image({
+                url: IMG_ALFATIH, //url of your image.
+                alt: 'Hafiz Doll',
+            }),
+            title: 'Alquran Talking Pen Al Fatih',
+            subtitle: 'Baca alquran perkata dengan talking pen',
+            text: 'Al Quran New Al Fatih Talking Pen, Memberikan nuansa yang sangat bervariasi dimana pembaca diberikan berbagai macam pilihan ilmu yang terkait dengan Al-Quran, Pembaca bisa mendengar langsung 1 halaman dengan satu klik, mendengar per ayat, bahkan kata per kata. Selain itu juga di sediakan terjemahan ayat, hukum tajwid yang lebih lengkap, Asbabun nuzul, Doa Doa, dan lain sebagainya.',
+            buttons: new Button({
+                title: 'Klik Disini Untuk Pembelian',
+                url: 'https://alqolam.com',
+            }),
+        }));
+        conv.ask(new Suggestions(product_suggestion));
+    } 
+    else if (product_type === "mushaf wanita") {
+      conv.ask("Alquran talking pen Mushaf Wanita"); // this Simple Response is necessary
+      conv.ask(new BasicCard({
+          image: new Image({
+              url: IMG_MUSHAF_WOMAN, //url of your image.
+              alt: 'Mushaf Wanita',
+          }),
+          title: 'Alquran Talking Pen Mushaf Wanita',
+          subtitle: 'Alquran talking pen yang dilengkapi dengan fitu fitur wanita',
+          text: 'Al Quran Digital Talking Pen Mushaf Al-Qolam For Woman merupakan produk terbaru dari Al-Qolam, yang di keluarkan khusus dengan fitur fitur wanita \n Seperti produk produk Al Qolam terdahulu Al Quran Mushaf Al-Qolam For Women ini dilengkapi dengan Talking Pen dengan Teknologi tinggi, Talking Pen ini dapat digunakan membantu pembaca belajar Al Quran lebih mudah.',
+          buttons: new Button({
+              title: 'Klik Disini Untuk Pembelian',
+              url: 'https://alqolam.com',
+          }),
+      }));
+      conv.ask(new Suggestions(product_suggestion));
+    }
+    else if (product_type === "maqamat for kids") {
+    conv.ask("Alquran talking pen untuk anak Mushaf Maqamat For Kids"); // this Simple Response is necessary
+    conv.ask(new BasicCard({
+        image: new Image({
+            url: IMG_MAQAMAT_KIDS, //url of your image.
+            alt: 'Maqamat For Kids',
+        }),
+        title: 'Mushaf Maqamat For Kids',
+        subtitle: 'Alquran talking pen yang dilengkapi dengan fitu fitur wanita',
+        text: 'Al quran digital yang memberikan kemudahan pada anak-anak untuk belajar membaca Al Quran sesuai dengan kaidah tahsiah yang benar. Desain yang dibuat khusus agar menarik untuk anak-anak dan menanamkan kecintaan mereka pada Al-Quran',
+        buttons: new Button({
+            title: 'Klik Disini Untuk Pembelian',
+            url: 'https://alqolam.com',
+        }),
+    }));
+    conv.ask(new Suggestions(product_suggestion));
+  }
+  else if (product_type === "Audio haji umrah") {
+    conv.ask("Audio Haji dan Umrah Mabrur"); // this Simple Response is necessary
+    conv.ask(new BasicCard({
+        image: new Image({
+            url: IMG_HAJI_UMRAH, //url of your image.
+            alt: 'Audio Haji Umrah',
+        }),
+        title: 'Mushaf Maqamat For Kids',
+        subtitle: 'Alquran talking pen yang dilengkapi dengan fitu fitur wanita',
+        text: 'MABRUR - Audio Haji & Umroh “Solusi Praktis Menghafal Do’a-Do’a Haji dan Umrah, Serta Mendengarkan Murottal Al-Qur’an.” Edisi Terbaru Dilengkapi Murottal Al-Qur’an & Al-Ma’tsurat',
+        buttons: new Button({
+            title: 'Klik Disini Untuk Pembelian',
+            url: 'https://alqolam.com',
+        }),
+    }));
+    conv.ask(new Suggestions(product_suggestion));
+  }
+    else {
         conv.ask("Silahkan Pilih Produk")
     }
 });
-// // End Detail Product
+// // End Detail Product without list
 
 
 
