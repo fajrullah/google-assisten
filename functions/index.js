@@ -33,11 +33,13 @@ const IMG_MUSHAF_WOMAN = 'https://assets.alqolam.com/images/2019/07/09/mushaf-wa
 const IMG_HAJI_UMRAH = 'https://assets.alqolam.com/images/2019/07/09/Audio-Haji-Putih--Hitam-With-Box-2.jpg';
 
 const callFunction = require('./component/getEndingMessage');
+const callIntent = require('./component/getQuran');
 const {
     SUGGEST,
     BOOK_NAME,
     intentSuggestions,
     product_suggestion,
+    SURAH,
 } = require('./component/getSuggestion');
 
 // Create an app instance
@@ -56,42 +58,7 @@ app.intent('start_app', (conv) => {
 // Quran Basic Card With Media Sample
 app.intent('intent_murottal', (conv) => {
     const quran = conv.parameters['quran'].toLowerCase();
-    if (quran === "alfatihah") {
-        if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
-            conv.close('Sorry, this device does not support audio playback.');
-            return;
-        }
-        conv.ask("Murottal Surah Al-Fatihah"); // this Simple Response is necessary
-        conv.ask(new MediaObject({
-            name: 'Surah Al-Fatihah',
-            url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
-            description: 'Surah Al-Fatihah Ayat 1 - 7',
-            icon: new Image({
-                url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
-                alt: 'Surah An-Naas',
-            }),
-        }));
-        conv.ask(new Suggestions(BOOK_NAME));
-
-    } else if (quran === "annaas") {
-        if (!conv.surface.capabilities.has('actions.capability.MEDIA_RESPONSE_AUDIO')) {
-            conv.close('Sorry, this device does not support audio playback.');
-            return;
-        }
-        conv.ask("Murotal Surah An-Naas");
-        conv.ask(new MediaObject({
-            name: 'Surah An-Naas',
-            url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
-            description: 'A funky Jazz tune',
-            icon: new Image({
-                url: 'https://assets.alqolam.com/images/2019/07/08/logo.png',
-                alt: 'Surah An-Naas',
-            }),
-        }));
-        conv.ask(new Suggestions(BOOK_NAME));
-    } else {
-        conv.ask("Silahkan Pilih Surah")
-    }
+    return callIntent.getIntentMurottal(quran, conv);
 });
 
 // Handle a media status event
@@ -211,7 +178,7 @@ app.intent('get-option', (conv, _input, option) => {
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
-  } 
+  }
   else if (option === HAFIZ_DOLL) {
     conv.ask("Mainan Hafiz Hafizah Talking Doll"); // this Simple Response is necessary
         conv.ask(new BasicCard({
@@ -300,7 +267,7 @@ app.intent('get-option', (conv, _input, option) => {
 })
 
 // Start Detail Product without list
-app.intent('without_list', (conv) => {  
+app.intent('without_list', (conv) => {
     const product_type = conv.parameters['product_type'].toLowerCase();
     if (product_type === "smart hafiz") {
       conv.ask("Smart Hafiz Mainan Edukasi Visual Untuk Anak"); // this Simple Response is necessary
@@ -335,7 +302,7 @@ app.intent('without_list', (conv) => {
           }),
       }));
       conv.ask(new Suggestions(product_suggestion));
-    } 
+    }
     else if (product_type === "alfatih") {
       conv.ask("Alquran dengan talking pen Mushaf Alfatih"); // this Simple Response is necessary
         conv.ask(new BasicCard({
@@ -352,7 +319,7 @@ app.intent('without_list', (conv) => {
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
-    } 
+    }
     else if (product_type === "mushaf wanita") {
       conv.ask("Alquran talking pen Mushaf Wanita"); // this Simple Response is necessary
       conv.ask(new BasicCard({

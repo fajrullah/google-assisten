@@ -41,5 +41,19 @@ module.exports = {
         "Mushaf Wanita",
         "Audio Haji Umrah",
         "Maqamat for kids",
-    ]
+    ],
+    SURAH: {
+        alfatihah: {
+            surat: 'alfatihah',
+            name: 'Surah Al-Fatihah',
+            url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/001%20Al%20Faatihah.mp3',
+            desc: 'Surah Al-Fatihah Ayat 1 - 7'
+        },
+        annaas: {
+            surat: 'annaas',
+            name: 'Surah An-Naas',
+            url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
+            desc: 'Surah An-Nas Ayat 1 - 6'
+        }
+    },
 };
