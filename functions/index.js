@@ -17,8 +17,8 @@ const {
     Table
 } = require('actions-on-google');
 
-const SMART_HAFIZ = 'SMART_HAFIZ';
-const HAFIZ_DOLL = 'HAFIZ_DOLL';
+const SMART_HAFIZ = 'smart hafiz';
+const HAFIZ_DOLL = 'hafiz doll';
 
 // Constant for image URLs
 const IMG_URL_AOG = 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png';
@@ -99,18 +99,17 @@ app.intent('media status', (conv) => {
 
 
 app.intent('quit_app', (conv) => {
-  conv.ask('Produk Alqolam');
+  conv.ask('Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini');
   // conv.ask(new Suggestions(intentSuggestions));
   conv.ask(new Carousel({
     items: {
       // Add the first item to the carousel
       [SMART_HAFIZ]: {
         synonyms: [
-          'Assistant',
-          'Google Assistant',
+          'smart hafiz',
         ],
-        title: 'Item #1',
-        description: 'Description of Item #1',
+        title: 'Smart Hafiz',
+        description: 'Smart hafiz deskripsi',
         image: new Image({
           url: IMG_URL_AOG,
           alt: 'Google Assistant logo',
@@ -119,11 +118,10 @@ app.intent('quit_app', (conv) => {
       // Add the second item to the carousel
       [HAFIZ_DOLL]: {
         synonyms: [
-          'Transactions',
-          'Google Payments',
+          'Hafiz doll',
       ],
-        title: 'Item #2',
-        description: 'Description of Item #2',
+        title: 'Hafiz Doll',
+        description: 'Hafiz Doll Deskripsi',
         image: new Image({
           url: IMG_URL_GOOGLE_PAY,
           alt: 'Google Pay logo',
@@ -133,50 +131,9 @@ app.intent('quit_app', (conv) => {
   }));
 });
 
-
-// Start List Product
-// app.intent('quit_app', (conv) => {
-//     conv.ask('Kami menyediakan produk edukasi untuk anak yang dapat dilihat dibawah ini');
-//     // conv.ask(new Suggestions(intentSuggestions));
-//     conv.ask(new List({  
-//         title: 'Produk Edukasi Anak Dari Alqolam',
-//         items: {
-//                 // First Item
-//                 [SMART_HAFIZ]: {
-//                 synonyms: [
-//                   'Smart',
-//                   'smarthafiz',
-//                 ],
-//                 title: 'Smart Hafiz',
-//                 description: 'Smart Hafiz Deskripsi',
-//                 image: new Image({
-//                     url: 'https://www.gstatic.com/images/branding/product/2x/assistant_48dp.png',
-//                     alt: 'Google Assistant logo',
-//                 })
-//                },
-//             // Add the second item to the list
-//                 [HAFIZ_DOLL]: { 
-//                   synonyms: [
-//                   'Smart',
-//                   'smarthafiz',
-//                 ],
-//                 title: 'hafiz doll',
-//                 description: 'hafiz doll bilingual description',
-//                 image: new Image({
-//                     url: 'https://www.gstatic.com/images/branding/product/2x/pay_48dp.png',
-//                     alt: 'Google Pay logo',
-//                 })
-//               },
-      
-//             },
-//     }));
-  
-// });
-// End List Product
-
 // Handle Produk
-app.intent('pilih_produk', (conv, input, option) => {
-  if (option === "SMART_HAFIZ") {
+app.intent('get-option', (conv, _input, option) => {
+  if (option === SMART_HAFIZ) {
     conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
         conv.ask(new BasicCard({
             image: new Image({
