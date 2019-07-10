@@ -299,41 +299,46 @@ app.intent('get-option', (conv, _input, option) => {
   }
 })
 
-// Start Detail Product
-// app.intent('detail_product', (conv) => {
-//     const product_type = conv.parameters['product_type'].toLowerCase();
-//     if (product_type === "smart hafiz") {
-//         conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
-//         conv.ask(new BasicCard({
-//             image: new Image({
-//                 url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
-//                 alt: 'Smart Hafiz',
-//             }),
-//             title: 'Smart Hafiz',
-//             subtitle: 'Bermain & belajar bersama Smart Hafiz',
-//             text: 'Produk Edukasi Visual untuk anak meningkatkan kecerdasan motorik dan dapat belajar bersama smart hafiz',
-//             buttons: new Button({
-//                 title: 'Klik Disini Untuk Pembelian',
-//                 url: 'https://alqolam.com',
-//             }),
-//         }));
-//         conv.ask(new SimpleResponse({
-//             speech: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-//             text: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-//         }));
+// Start Detail Product without list
+app.intent('detail_product', (conv) => {
+    const product_type = conv.parameters['product_type'].toLowerCase();
+    if (product_type === "smart hafiz") {
+      conv.ask("Smart Hafiz Mainan Edukasi Visual Untuk Anak"); // this Simple Response is necessary
+      conv.ask(new BasicCard({
+          image: new Image({
+              url: IMG_SMART_HAFIZ, //url of your image.
+              alt: 'Smart Hafiz',
+          }),
+          title: 'Smart Hafiz',
+          subtitle: 'Bermain & belajar bersama Smart Hafiz',
+          text: 'Smart Hafiz merupakan Inovasi terbaru dari Al Qolam , produk edukasi anak-anak Islami yang memiliki banyak sekali konten edukasi dan juga Fun. Dengan kualitas suara yang sangat baik, smart hafiz ini memiliki fitur karaoke untuk media anak mengaji dan bernyayi.',
+          buttons: new Button({
+              title: 'Klik Disini Untuk Pembelian',
+              url: 'https://alqolam.com',
+          }),
+      }));
+      conv.ask(new Suggestions(product_suggestion));
 
-//     } else if (product_type === "hafiz doll") {
-//         conv.ask("Ini Hafiz Doll");
-//         conv.ask(new BasicCard({
-//             image: new Image({
-//                 url: 'https://assets.alqolam.com/images/2019/04/08/4.jpg', //url of your image.
-//                 alt: 'Smart Hafiz',
-//             }),
-//         }));
-//     } else {
-//         conv.ask("Silahkan Pilih Produk")
-//     }
-// });
+    } else if (product_type === "hafiz doll") {
+      conv.ask("Mainan Hafiz Hafizah Talking Doll"); // this Simple Response is necessary
+      conv.ask(new BasicCard({
+          image: new Image({
+              url: IMG_HAFIZ_DOLL, //url of your image.
+              alt: 'Hafiz Doll',
+          }),
+          title: 'Hafiz Hafizah Talking Doll',
+          subtitle: 'Boneka edukasi untuk anak',
+          text: 'Hafiz Hafizah Talking Doll adalah produk edukasi terbaru dari Al-Qolam yang menggunakan teknologi tinggi. Yang dapat di hubungkan dengan aplikasi Hafiz-Hafizah di Android yang bisa di download di Google Play, Icon anak soleh ini bisa mengajarkan banyak hal positif kepada anak-anak dengan cara menyenangkan dan tidak membosankan.',
+          buttons: new Button({
+              title: 'Klik Disini Untuk Pembelian',
+              url: 'https://alqolam.com',
+          }),
+      }));
+      conv.ask(new Suggestions(product_suggestion));
+    } else {
+        conv.ask("Silahkan Pilih Produk")
+    }
+});
 // // End Detail Product
 
 
