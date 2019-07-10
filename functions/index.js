@@ -109,7 +109,7 @@ app.intent('media status', (conv) => {
 app.intent('quit_app', (conv) => {
   conv.ask('Kami menyediakan produk produk islami & edukasi yang dapat dilihat dibawah ini');
   // conv.ask(new Suggestions(intentSuggestions));
-  conv.ask(new Carousel({
+  conv.ask(new List({
     items: {
       // #1
       [SMART_HAFIZ]: {
