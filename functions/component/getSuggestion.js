@@ -33,5 +33,13 @@ module.exports = {
         "Smart Hafiz",
         "Hafiz Doll",
         "Alquran Al-Fatih",
+    ],
+    product_suggestion: [
+        "Smart Hafiz",
+        "Hafiz Doll",
+        "Mushaf Al-Fatih",
+        "Mushaf Wanita",
+        "Audio Haji Umrah",
+        "Maqamat for kids",
     ]
 };

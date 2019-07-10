@@ -37,6 +37,7 @@ const {
     SUGGEST,
     BOOK_NAME,
     intentSuggestions,
+    product_suggestion,
 } = require('./component/getSuggestion');
 
 // Create an app instance
@@ -203,6 +204,7 @@ app.intent('get-option', (conv, _input, option) => {
                 url: 'https://alqolam.com',
             }),
         }));
+        conv.ask(new Suggestions(product_suggestion));
   } 
   else if (option === HAFIZ_DOLL) {
     conv.ask("Mainan Hafiz Hafizah Talking Doll"); // this Simple Response is necessary
@@ -219,6 +221,7 @@ app.intent('get-option', (conv, _input, option) => {
                 url: 'https://alqolam.com',
             }),
         }));
+        conv.ask(new Suggestions(product_suggestion));
   }
   else if (option === MUSHAF_ALFATIH) {
     conv.ask("Alquran dengan talking pen Mushaf Alfatih"); // this Simple Response is necessary
@@ -235,6 +238,7 @@ app.intent('get-option', (conv, _input, option) => {
                 url: 'https://alqolam.com',
             }),
         }));
+        conv.ask(new Suggestions(product_suggestion));
   }
   else if (option === MUSHAF_WANITA) {
     conv.ask("Alquran talking pen Mushaf Wanita"); // this Simple Response is necessary
@@ -251,6 +255,7 @@ app.intent('get-option', (conv, _input, option) => {
                 url: 'https://alqolam.com',
             }),
         }));
+        conv.ask(new Suggestions(product_suggestion));
   }
   else if (option === MUSHAF_MAQAMAT_KIDS) {
     conv.ask("Alquran talking pen untuk anak Mushaf Maqamat For Kids"); // this Simple Response is necessary
@@ -267,6 +272,7 @@ app.intent('get-option', (conv, _input, option) => {
                 url: 'https://alqolam.com',
             }),
         }));
+        conv.ask(new Suggestions(product_suggestion));
   }
   else if (option === AUDIO_HAJI) {
     conv.ask("Audio Haji dan Umrah Mabrur"); // this Simple Response is necessary
@@ -283,45 +289,46 @@ app.intent('get-option', (conv, _input, option) => {
                 url: 'https://alqolam.com',
             }),
         }));
+        conv.ask(new Suggestions(product_suggestion));
   }
 })
 
 // Start Detail Product
-app.intent('detail_product', (conv) => {
-    const product_type = conv.parameters['product_type'].toLowerCase();
-    if (product_type === "smart hafiz") {
-        conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
-        conv.ask(new BasicCard({
-            image: new Image({
-                url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
-                alt: 'Smart Hafiz',
-            }),
-            title: 'Smart Hafiz',
-            subtitle: 'Bermain & belajar bersama Smart Hafiz',
-            text: 'Produk Edukasi Visual untuk anak meningkatkan kecerdasan motorik dan dapat belajar bersama smart hafiz',
-            buttons: new Button({
-                title: 'Klik Disini Untuk Pembelian',
-                url: 'https://alqolam.com',
-            }),
-        }));
-        conv.ask(new SimpleResponse({
-            speech: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-            text: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
-        }));
+// app.intent('detail_product', (conv) => {
+//     const product_type = conv.parameters['product_type'].toLowerCase();
+//     if (product_type === "smart hafiz") {
+//         conv.ask("ini produk smart hafiz"); // this Simple Response is necessary
+//         conv.ask(new BasicCard({
+//             image: new Image({
+//                 url: 'https://assets.alqolam.com/images/2019/04/08/5.jpg', //url of your image.
+//                 alt: 'Smart Hafiz',
+//             }),
+//             title: 'Smart Hafiz',
+//             subtitle: 'Bermain & belajar bersama Smart Hafiz',
+//             text: 'Produk Edukasi Visual untuk anak meningkatkan kecerdasan motorik dan dapat belajar bersama smart hafiz',
+//             buttons: new Button({
+//                 title: 'Klik Disini Untuk Pembelian',
+//                 url: 'https://alqolam.com',
+//             }),
+//         }));
+//         conv.ask(new SimpleResponse({
+//             speech: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
+//             text: 'Silahkan masukan email dan nomor telepon apabila anda tertarik dengan produk ini',
+//         }));
 
-    } else if (product_type === "hafiz doll") {
-        conv.ask("Ini Hafiz Doll");
-        conv.ask(new BasicCard({
-            image: new Image({
-                url: 'https://assets.alqolam.com/images/2019/04/08/4.jpg', //url of your image.
-                alt: 'Smart Hafiz',
-            }),
-        }));
-    } else {
-        conv.ask("Silahkan Pilih Produk")
-    }
-});
-// End Detail Product
+//     } else if (product_type === "hafiz doll") {
+//         conv.ask("Ini Hafiz Doll");
+//         conv.ask(new BasicCard({
+//             image: new Image({
+//                 url: 'https://assets.alqolam.com/images/2019/04/08/4.jpg', //url of your image.
+//                 alt: 'Smart Hafiz',
+//             }),
+//         }));
+//     } else {
+//         conv.ask("Silahkan Pilih Produk")
+//     }
+// });
+// // End Detail Product
 
 
 
