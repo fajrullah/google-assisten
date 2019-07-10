@@ -106,7 +106,7 @@ app.intent('media status', (conv) => {
 });
 
 
-app.intent('ganti_surah', (conv) => {
+app.intent('ganti-surah', (conv) => {
   conv.ask("Terdapat 114 Surah dalam Al-Quran, Surah apa yang ingin Anda dengarkan?");
   conv.ask(new Suggestions(BOOK_NAME));
 });
