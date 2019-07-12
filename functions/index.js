@@ -39,8 +39,11 @@ const {
     BOOK_NAME,
     intentSuggestions,
     product_suggestion,
-    SURAH,
 } = require('./component/getSuggestion');
+
+const {
+  SURAH,
+} = require('./surahdata')
 
 // Create an app instance
 const app = dialogflow()
@@ -52,10 +55,8 @@ app.intent('start_app', (conv) => {
     return getMessageFromQuote(initMessage, conv, BOOK_NAME);
 });
 
-// Call Quran.js
-// const quran = require('./quran');
 
-// Quran Basic Card With Media Sample
+// Quran Basic Card With Media Audio
 app.intent('intent_murottal', (conv) => {
     const quran = conv.parameters['quran'].toLowerCase();
     return callIntent.getIntentMurottal(quran, conv);
