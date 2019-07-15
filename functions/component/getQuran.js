@@ -19,8 +19,11 @@ const {
     BOOK_NAME,
     intentSuggestions,
     product_suggestion,
-    SURAH,
 } = require('./getSuggestion');
+
+const {
+    SURAH,
+} = require('./surahdata')
 
 module.exports = {
     getIntentMurottal: (quran, conv) => {
