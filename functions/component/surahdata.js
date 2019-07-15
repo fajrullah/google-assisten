@@ -16,7 +16,7 @@ SURAH: {
         surat: 'aliimran',
         name: 'Surah Ali \'Imraan',
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/003%20AliImraan.mp3',
-        desc: 'Surah An-Nas Ayat 1 - 200'
+        desc: 'Surah Ali \'Imraan Ayat 1 - 200'
     },
     annisaa: {
         surat: 'annisaa',
@@ -25,10 +25,10 @@ SURAH: {
         desc: 'Surah An-Nisaa Ayat 1 - 176'
     },
     almaidah: {
-        surat: 'annisaa',
-        name: 'Surah An Maaidah',
-        url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/004%20An%20Nisaa.mp3',
-        desc: 'Surah An-Nisaa Ayat 1 - 176'
+        surat: 'almaidah',
+        name: 'Surah Al Maa\'idah',
+        url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/005%20Al%20Maa%60idah.mp3',
+        desc: 'Surah Al Maa\'idah Ayat 1 - 120'
     },
     
 },
