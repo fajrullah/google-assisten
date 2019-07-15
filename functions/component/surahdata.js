@@ -30,6 +30,12 @@ SURAH: {
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/005%20Al%20Maa%60idah.mp3',
         desc: 'Surah Al Maa\'idah Ayat 1 - 120'
     },
+    alanam: {
+        surat: 'alanam',
+        name: 'Surah Al An\'aam',
+        url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/006%20Al%20An\'aam.mp3',
+        desc: 'Surah Al An\'aam Ayat 1 - 165'
+    },
     
 },
 }
