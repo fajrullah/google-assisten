@@ -43,7 +43,7 @@ const {
 
 const {
   SURAH,
-} = require('./surahdata')
+} = require('./component/surahdata')
 
 // Create an app instance
 const app = dialogflow()
