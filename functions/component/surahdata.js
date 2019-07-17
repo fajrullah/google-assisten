@@ -8,9 +8,9 @@ SURAH: {
     },
     albaqarah: {
         surat: 'albaqarah',
-        name: 'Surah Al Baqoroh',
+        name: 'Surah Al Baqarah',
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/002%20Al%20Baqoroh.mp3',
-        desc: 'Surah Al-Fatihah Ayat 1 - 286'
+        desc: 'Surah Al-Baqarah Ayat 1 - 286'
     },
     aliimran: {
         surat: 'aliimran',
@@ -592,7 +592,7 @@ SURAH: {
         surat: 'azzalzalah',
         name : 'Surah Az-Zalzalah',
         url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/099%20Al%20Zalzalah.mp3',
-        desc : 'Surah Al-Bayyinah Ayat 1 - 8'
+        desc : 'Surah Az-Zalzalah Ayat 1 - 8'
     },
     aladiyat : {
         surat: 'aladiyat',
