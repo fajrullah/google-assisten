@@ -500,9 +500,9 @@ SURAH: {
     },
     alinsyiqaq : {
         surat: 'alinsyiqaq',
-        name : 'Surah Al-Muthaffifiin',
-        url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/083%20Al%20Muthaffifiin.mp3',
-        desc : 'Surah Al-Muthaffifiin Ayat 1 - 36'
+        name : 'Surah Al-Insyiqaq',
+        url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/084%20Al%20Insyiqaaq.mp3',
+        desc : 'Surah Al-Insyiqaq Ayat 1 - 25'
     },
     alburuj : {
         surat: 'alburuj',
