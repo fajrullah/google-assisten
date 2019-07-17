@@ -124,7 +124,7 @@ SURAH: {
         surat: 'alanbiyaa',
         name: 'Surah Al-Anbiya',
         url: 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/021%20Al%20Anbiyaa%60.mp3',
-        desc: 'Surah Ta Ha Ayat 1 - 112'
+        desc: 'Surah Al-Anbiyaa Ayat 1 - 112'
     },
     alhajj : {
         surat: 'alhajj',
