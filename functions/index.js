@@ -400,6 +400,7 @@ app.intent('Default Fallback Intent', (conv) => {
 function getMessageFromQuote(initMessage, conv, sugest) {
     return conv.ask(new Suggestions(sugest), new SimpleResponse(initMessage),
         new SimpleResponse({
+            text: callFunction.getEndingMessageText(),
             speech: `<speak> ` + callFunction.getEndingMessage() + ` </speak>  `
         }));
 }
