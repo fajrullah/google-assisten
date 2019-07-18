@@ -255,7 +255,7 @@ app.intent('get-option', (conv, _input, option) => {
                 url: IMG_HAJI_UMRAH, //url of your image.
                 alt: 'Audio Haji Umrah',
             }),
-            title: 'Mushaf Maqamat For Kids',
+            title: 'Mabrur Audio Haji Umrah',
             subtitle: 'Alquran talking pen yang dilengkapi dengan fitu fitur wanita',
             text: 'MABRUR - Audio Haji & Umroh “Solusi Praktis Menghafal Do’a-Do’a Haji dan Umrah, Serta Mendengarkan Murottal Al-Qur’an.” Edisi Terbaru Dilengkapi Murottal Al-Qur’an & Al-Ma’tsurat',
             buttons: new Button({
