@@ -51,8 +51,8 @@ const app = dialogflow()
 
 // Start App
 app.intent('start_app', (conv) => {
-    const initMessage = "Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a. \n Surah atau do'a apa yang ingin anda dengarkan.?";
-    return getMessageFromQuote(initMessage, conv, BOOK_NAME);
+    conv.ask("Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a. \n Surah atau do'a apa yang ingin anda dengarkan.?");
+    conv.ask(new Suggestions(BOOK_NAME));
 });
 
 
@@ -282,7 +282,7 @@ app.intent('without_list', (conv) => {
           text: 'Smart Hafiz merupakan Inovasi terbaru dari Al Qolam , produk edukasi anak-anak Islami yang memiliki banyak sekali konten edukasi dan juga Fun. Dengan kualitas suara yang sangat baik, smart hafiz ini memiliki fitur karaoke untuk media anak mengaji dan bernyayi.',
           buttons: new Button({
               title: 'Selengkapnya',
-              url: 'https://alqolam.com',
+              url: 'https://campaign.alqolam.com/smart-hafiz',
           }),
       }));
       conv.ask(new Suggestions(product_suggestion));
@@ -299,7 +299,7 @@ app.intent('without_list', (conv) => {
           text: 'Hafiz Hafizah Talking Doll adalah produk edukasi terbaru dari Al-Qolam yang menggunakan teknologi tinggi. Yang dapat di hubungkan dengan aplikasi Hafiz-Hafizah di Android yang bisa di download di Google Play, Icon anak soleh ini bisa mengajarkan banyak hal positif kepada anak-anak dengan cara menyenangkan dan tidak membosankan.',
           buttons: new Button({
               title: 'Selengkapnya',
-              url: 'https://alqolam.com',
+              url: 'https://campaign.alqolam.com/hafiz-doll',
           }),
       }));
       conv.ask(new Suggestions(product_suggestion));
@@ -316,7 +316,7 @@ app.intent('without_list', (conv) => {
             text: 'Al Quran New Al Fatih Talking Pen, Memberikan nuansa yang sangat bervariasi dimana pembaca diberikan berbagai macam pilihan ilmu yang terkait dengan Al-Quran, Pembaca bisa mendengar langsung 1 halaman dengan satu klik, mendengar per ayat, bahkan kata per kata. Selain itu juga di sediakan terjemahan ayat, hukum tajwid yang lebih lengkap, Asbabun nuzul, Doa Doa, dan lain sebagainya.',
             buttons: new Button({
                 title: 'Selengkapnya',
-                url: 'https://alqolam.com',
+                url: 'https://campaign.alqolam.com/alfatih',
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
@@ -333,7 +333,7 @@ app.intent('without_list', (conv) => {
           text: 'Al Quran Digital Talking Pen Mushaf Al-Qolam For Woman merupakan produk terbaru dari Al-Qolam, yang di keluarkan khusus dengan fitur fitur wanita \n Seperti produk produk Al Qolam terdahulu Al Quran Mushaf Al-Qolam For Women ini dilengkapi dengan Talking Pen dengan Teknologi tinggi, Talking Pen ini dapat digunakan membantu pembaca belajar Al Quran lebih mudah.',
           buttons: new Button({
               title: 'Selengkapnya',
-              url: 'https://alqolam.com',
+              url: 'https://campaign.alqolam.com/mushaf-wanita',
           }),
       }));
       conv.ask(new Suggestions(product_suggestion));
@@ -350,7 +350,7 @@ app.intent('without_list', (conv) => {
         text: 'Al quran digital yang memberikan kemudahan pada anak-anak untuk belajar membaca Al Quran sesuai dengan kaidah tahsiah yang benar. Desain yang dibuat khusus agar menarik untuk anak-anak dan menanamkan kecintaan mereka pada Al-Quran',
         buttons: new Button({
             title: 'Selengkapnya',
-            url: 'https://alqolam.com',
+            url: 'https://campaign.alqolam.com/maqamat-kids',
         }),
     }));
     conv.ask(new Suggestions(product_suggestion));
@@ -367,7 +367,7 @@ app.intent('without_list', (conv) => {
         text: 'MABRUR - Audio Haji & Umroh “Solusi Praktis Menghafal Do’a-Do’a Haji dan Umrah, Serta Mendengarkan Murottal Al-Qur’an.” Edisi Terbaru Dilengkapi Murottal Al-Qur’an & Al-Ma’tsurat',
         buttons: new Button({
             title: 'Selengkapnya',
-            url: 'https://alqolam.com',
+            url: 'https://campaign.alqolam.com/audio-haji',
         }),
     }));
     conv.ask(new Suggestions(product_suggestion));
