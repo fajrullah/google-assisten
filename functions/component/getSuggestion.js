@@ -27,7 +27,9 @@ module.exports = {
     BOOK_NAME: [
         "Surah Alfatihah",
         "Surah Yasin",
-        "Surah An-Nas"
+        "Surah Al-Falaq",
+        "Surah Al-Falaq",
+        "Surah Asy-Syams",
     ],
     intentSuggestions: [
         "Smart Hafiz",
