@@ -51,7 +51,7 @@ const app = dialogflow()
 
 // Start App
 app.intent('start_app', (conv) => {
-    conv.ask("Assalamualaikum! Selamat datang dan selamat mendengarkan Al Quran dan Do'a Do'a. \n Surah atau do'a apa yang ingin anda dengarkan.?");
+    conv.ask("Assalamualaikum! Selamat datang di Alqolam, Anda dapat mendengarkan 114 Surah Alquran, Surah apa yang ingin anda dengarkan.?");
     conv.ask(new Suggestions(BOOK_NAME));
 });
 
