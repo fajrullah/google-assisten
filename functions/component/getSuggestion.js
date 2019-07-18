@@ -25,10 +25,10 @@ module.exports = {
         "Informasi Produk"
     ],
     BOOK_NAME: [
-        "Surah Alfatihah",
+        "Surah Al-Waqiah",
         "Surah Yasin",
         "Surah Al-Falaq",
-        "Surah Al-Falaq",
+        "Surah Al-Kahfi",
         "Surah Asy-Syams",
     ],
     intentSuggestions: [
