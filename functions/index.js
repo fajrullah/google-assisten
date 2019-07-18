@@ -209,7 +209,7 @@ app.intent('get-option', (conv, _input, option) => {
             text: 'Al Quran New Al Fatih Talking Pen, Memberikan nuansa yang sangat bervariasi dimana pembaca diberikan berbagai macam pilihan ilmu yang terkait dengan Al-Quran, Pembaca bisa mendengar langsung 1 halaman dengan satu klik, mendengar per ayat, bahkan kata per kata. Selain itu juga di sediakan terjemahan ayat, hukum tajwid yang lebih lengkap, Asbabun nuzul, Doa Doa, dan lain sebagainya.',
             buttons: new Button({
                 title: 'Selengkapnya',
-                url: 'https://alqolam.com',
+                url: 'https://campaign.alqolam.com/alfatih',
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
@@ -226,7 +226,7 @@ app.intent('get-option', (conv, _input, option) => {
             text: 'Al Quran Digital Talking Pen Mushaf Al-Qolam For Woman merupakan produk terbaru dari Al-Qolam, yang di keluarkan khusus dengan fitur fitur wanita \n Seperti produk produk Al Qolam terdahulu Al Quran Mushaf Al-Qolam For Women ini dilengkapi dengan Talking Pen dengan Teknologi tinggi, Talking Pen ini dapat digunakan membantu pembaca belajar Al Quran lebih mudah.',
             buttons: new Button({
                 title: 'Selengkapnya',
-                url: 'https://alqolam.com',
+                url: 'https://campaign.alqolam.com/mushaf-wanita',
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
@@ -243,7 +243,7 @@ app.intent('get-option', (conv, _input, option) => {
             text: 'Al quran digital yang memberikan kemudahan pada anak-anak untuk belajar membaca Al Quran sesuai dengan kaidah tahsiah yang benar. Desain yang dibuat khusus agar menarik untuk anak-anak dan menanamkan kecintaan mereka pada Al-Quran',
             buttons: new Button({
                 title: 'Selengkapnya',
-                url: 'https://alqolam.com',
+                url: 'https://campaign.alqolam.com/maqamat-kids',
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
@@ -260,7 +260,7 @@ app.intent('get-option', (conv, _input, option) => {
             text: 'MABRUR - Audio Haji & Umroh “Solusi Praktis Menghafal Do’a-Do’a Haji dan Umrah, Serta Mendengarkan Murottal Al-Qur’an.” Edisi Terbaru Dilengkapi Murottal Al-Qur’an & Al-Ma’tsurat',
             buttons: new Button({
                 title: 'Selengkapnya',
-                url: 'https://alqolam.com',
+                url: 'https://campaign.alqolam.com/audio-haji',
             }),
         }));
         conv.ask(new Suggestions(product_suggestion));
