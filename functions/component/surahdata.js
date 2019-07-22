@@ -399,13 +399,13 @@ SURAH: {
     almulk : {
         surat: 'almulk',
         name : 'Surah Al-Mulk',
-        url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/066%20At%20Tahriim.mp3',
+        url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/067%20Al%20Mulk.mp3',
         desc : 'Surah Al-Mulk Ayat 1 - 30'
     },
     alqalam : {
         surat: 'alqalam',
         name : 'Surah Al-Qalam',
-        url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/066%20At%20Tahriim.mp3',
+        url  : 'https://alqolam.sgp1.digitaloceanspaces.com/Syikh%20Misyari%20Rasyid/068%20Al%20Qalam%20.mp3',
         desc : 'Surah Al-Qalam Ayat 1 - 30'
     },
     alhaqqah : {
